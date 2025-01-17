@@ -1,9 +1,6 @@
 const rideModel = require("../models/ride.model");
 const mapService = require("../services/maps.service");
-const { validationResult } = require('express-validator');
 const crypto = require('crypto');
-const bcrypt = require('bcrypt');
-const { sendMessageToSocketId } = require('../socket');
 const userModel = require("../models/user.model"); // Add this line to import the user model
 
 // First, define helper functions

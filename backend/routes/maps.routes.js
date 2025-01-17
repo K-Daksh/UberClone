@@ -3,7 +3,6 @@ const router = express.Router();
 const authMiddleware = require('../middlewares/auth.middleware');
 const mapController = require('../controllers/map.controller');
 const { query } = require('express-validator');
-const { map } = require('../app');
 
 router.get('/get-coordinates',
     query('address').isString().notEmpty().isLength({ min: 3 }),
