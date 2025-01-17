@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { UserDataContext } from "../context/userContext";
+import { UserDataContext } from "../context/UserContext";
 import { ToastContainer, toast } from "react-toastify";
 
 const UserSignup = () => {
