@@ -1,10 +1,13 @@
-# Uber Clone Project
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Uber_logo_2018.svg/1200px-Uber_logo_2018.svg.png" alt="logo" width="100"/>
 
-This is a full-stack ride-hailing application inspired by the Uber service. It demonstrates real-time location tracking, live ride updates, driver assignment, and more.
 
-![Uber Clone Demo](https://drive.google.com/uc?export=view&id=1CN0gRMYCw7G91s_JeBOD4w3Hd2B_4JEO)
+This is a full-stack ride-hailing application inspired by Uber. It demonstrates real-time location tracking, live ride updates, driver assignments, and more.
 
-![Uber Clone Demo](https://drive.google.com/file/d/1og_Od05ylqS5HO4OV3n8_ntosYvGP9y9/view?usp=sharing)
+<p align="center" >
+  <img src="./assets/ClientGif.gif" alt="Client Demo" width="250" />
+  <img src="./assets/CaptainGif.gif" alt="Captain Demo" width="250"/>
+</p>
+
 
 ## Features
 
@@ -23,7 +26,7 @@ This is a full-stack ride-hailing application inspired by the Uber service. It d
 
 ## Project Overview
 
-1. A user can sign in, request a ride, and track the driver’s location in real-time.
+1. A user can sign in, request a ride, and track the driver’s location in real time.
 2. A captain/driver can log in, view ride requests, and update location for live tracking.
 3. Uses a backend server (Node.js/Express) for APIs and real-time sockets.
 4. Utilizes a modern frontend (React) with Google Maps for a mobile-friendly UI.
