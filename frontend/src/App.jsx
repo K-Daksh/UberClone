@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Start from "./pages/Start";
 import UserLogin from "./pages/UserLogin";
@@ -15,7 +15,58 @@ import RideStarted from "./pages/RideStarted";
 import CaptainRiding from "./pages/CaptainRiding";
 
 const App = () => {
-  return (
+  const [isMobileView, setIsMobileView] = useState(false);
+
+  useEffect(() => {
+    const checkMobileView = () => {
+      setIsMobileView(window.innerWidth <= 768);
+    };
+
+    // Check initially
+    checkMobileView();
+
+    // Add resize listener
+    window.addEventListener("resize", checkMobileView);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", checkMobileView);
+  }, []);
+
+  const DesktopMessage = () => (
+    <div
+      className="text-2xl font-semibold font-sans text-white flex flex-col justify-center items-center"
+      style={{
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        textAlign: "center",
+        padding: "20px",
+        background: "linear-gradient(to right, #00c6ff, #0072ff)",
+      }}
+    >
+      <img
+        className="w-[10%] p-2.5"
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Uber_logo_2018.svg/1200px-Uber_logo_2018.svg.png"
+        alt="logo"
+      />
+      <h1>
+        Please use Ctrl + Shift + M to switch to mobile viewing mode.
+        <br />
+        This website is designed for mobile devices only.
+      </h1>
+      <a
+        href="https://github.com/K-Daksh/UberClone"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-base font-thin hover:underline"
+      >
+        https://github.com/K-Daksh/UberClone
+      </a>
+    </div>
+  );
+
+  return isMobileView ? (
     <div>
       <Routes>
         <Route path="/" element={<Start />} />
@@ -59,6 +110,8 @@ const App = () => {
         ></Route>
       </Routes>
     </div>
+  ) : (
+    <DesktopMessage />
   );
 };
 
