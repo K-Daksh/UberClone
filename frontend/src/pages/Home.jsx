@@ -58,9 +58,6 @@ function Home() {
     setDriverSelected(false);
     navigate("/riding", { state: { ride } }); // Updated navigate to include ride data
   });
-  socket.on("ride-ended", () => {
-    navigate("/home");
-  });
 
   const fetchSuggestions = async (query) => {
     if (query.length < 3) {
@@ -381,7 +378,7 @@ function Home() {
       </div>
       <div
         ref={vehicleRef}
-        className="fixed  min-h-[35%] bottom-0 w-screen translate-y-full max-h-[50%] rounded-t-lg bg-white overflow-hidden z-50"
+        className="fixed  min-h-[35%] bottom-0 w-screen translate-y-full max-h-[50%] rounded-t-lg bg-white overflow-auto z-50"
       >
         <VehiclePanel
           setVehiclePanel={setVehiclePanel}

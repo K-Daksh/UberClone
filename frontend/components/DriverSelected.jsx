@@ -13,7 +13,7 @@ const DriverSelected = (props) => {
         <h1>Loading...</h1>
       </div>
     );
-  console.log(props.ride);
+  // console.log(props.ride);
   const { firstPart, secondPart } = formatAddress(props.ride.pickup);
   return (
     <>

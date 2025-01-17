@@ -21,7 +21,7 @@ module.exports.createCaptain = async ({ firstname, lastname, email, password, co
             }
         });
         await captain.save();
-        console.log("Captain created", captain);
+        // console.log("Captain created", captain);
         return captain;
     } catch (error) {
         throw new Error(error);

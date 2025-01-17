@@ -6,23 +6,21 @@ import LiveTracking from "../../components/LiveTracking";
 
 const RideStarted = () => {
   const location = useLocation();
-  const [ride, setRide] = useState(null);
   const navigate = useNavigate();
   const { socket } = useContext(SocketContext);
+  console.log(socket.id);
 
-  socket.on("ride-ended", () => {
-    navigate("/home");
-  });
+  const { ride } = location.state || {};
 
   useEffect(() => {
-    if (location.state && location.state.ride) {
-      setRide(location.state.ride);
-    }
-  }, [location.state]);
+    socket.emit("join", { userType: "user", userId: ride.user._id });
+    // console.log("User socket id is ", socket.id);
+  }, []);
 
-  if (!ride) {
-    return <div>Loading...</div>;
-  }
+  socket.on("ride-ended", () => {
+    // console.log("Ride ended called at ride started");
+    navigate("/home");
+  });
 
   const formatAddress = (address) => {
     const firstCommaIndex = address.indexOf(",");

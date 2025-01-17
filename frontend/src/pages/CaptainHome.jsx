@@ -54,7 +54,7 @@ const CaptainHome = () => {
   });
 
   async function confirmRide() {
-    console.log("Confirming ride");
+    // console.log("Confirming ride");
     const response = await axios.post(
       `${import.meta.env.VITE_BASE_URL}/rides/confirm`,
       {
@@ -67,7 +67,7 @@ const CaptainHome = () => {
         },
       }
     );
-    console.log(response);
+    // console.log(response);
     setRidePopup(false);
     setConfirmRidePickup(true);
   }
