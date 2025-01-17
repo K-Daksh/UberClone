@@ -41,7 +41,7 @@ This is a full-stack ride-hailing application inspired by Uber. It demonstrates 
 ## Quick Setup
 
 1. Clone this repo:  
-   git clone < URL >
+   git clone https://github.com/K-Daksh/UberClone.git
 
 2. Install dependencies (each folder):
 
