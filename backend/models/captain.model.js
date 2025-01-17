@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const socket = require('websockets/lib/websockets/socket');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
 
