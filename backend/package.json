@@ -23,6 +23,8 @@
     "mongoose": "^8.9.5",
     "socket.io": "^4.8.1",
     "socket.io-client": "^4.8.1",
-    "socketio": "^1.0.0"
+    "socketio": "^1.0.0",
+    "ws": "^8.18.0",
+    "yeast": "^0.1.2"
   }
 }
