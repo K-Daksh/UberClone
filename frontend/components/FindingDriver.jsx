@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+// import { useNavigate } from "react-router-dom";
+// import { toast } from "react-toastify";
 
 const FindingDriver = (props) => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // const notify = () => {
   //   toast.error("No drivers available", {

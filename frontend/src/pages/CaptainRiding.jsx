@@ -6,7 +6,6 @@ import "remixicon/fonts/remixicon.css";
 import FinishRide from "../../components/FinishRide";
 import LiveTracking from "../../components/LiveTracking";
 import { ToastContainer, toast } from "react-toastify";
-import { set } from "mongoose";
 
 const CaptainRiding = () => {
   const [finishRidePanel, setFinishRidePanel] = React.useState(false);
