@@ -36,7 +36,7 @@ This is a full-stack ride-hailing application inspired by Uber. It demonstrates 
 - **Frontend**: React, Tailwind CSS, Socket.IO client, Google Maps API
 - **Backend**: Node.js, Express, Mongoose, MongoDB, Socket.IO server
 - **Authentication**: JWT-based
-- **Deployment**: Vite (development), potentially Docker or hosting of your choice
+- **Deployment**: Vite (development), Vercel and OnRender
 
 ## Quick Setup
 
