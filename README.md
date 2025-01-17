@@ -8,6 +8,7 @@ This is a full-stack ride-hailing application inspired by Uber. It demonstrates 
   <img src="./assets/CaptainGif.gif" alt="Captain Demo" width="250"/>
 </p>
 
+### Try for yourself https://uber-clone-app-bay.vercel.app/
 
 ## Features
 
