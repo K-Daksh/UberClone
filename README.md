@@ -1,4 +1,4 @@
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Uber_logo_2018.svg/1200px-Uber_logo_2018.svg.png" alt="logo" width="100"/>
+<h1>UBER</h1>
 
 
 This is a full-stack ride-hailing application inspired by Uber. It demonstrates real-time location tracking, live ride updates, driver assignments, and more.
