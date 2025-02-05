@@ -1,5 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
 import { useGSAP } from "@gsap/react";
+import { Link } from "react-router-dom";
 import gsap from "gsap";
 import "remixicon/fonts/remixicon.css";
 import LocationSearchPanel from "../../components/LocationSearchPanel";
@@ -117,6 +118,19 @@ function Home() {
     } catch (error) {
       console.error("Error fetching suggestions:", error);
       setDistance([]); // Reset to empty array on error
+    }
+  };
+
+  const logoutUser = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      await axios.get(`${import.meta.env.VITE_BASE_URL}/users/logout`, {
+        params: { origin: pickup, destination: destination },
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      navigate("/login");
+    } catch (error) {
+      console.error("Error Logging out :", error);
     }
   };
 
@@ -282,6 +296,21 @@ function Home() {
     [panelOpen]
   );
 
+  useEffect(() => {
+    if (navigator.geolocation) {
+      const watchId = navigator.geolocation.watchPosition((position) => {
+        socket.emit("update-location-user", {
+          userId: user._id,
+          location: {
+            ltd: position.coords.latitude,
+            lng: position.coords.longitude,
+          },
+        });
+      });
+      return () => navigator.geolocation.clearWatch(watchId);
+    }
+  }, [user, socket]);
+
   return (
     <div className="h-screen position-relative w-screen">
       <div>
@@ -291,6 +320,15 @@ function Home() {
           alt="logo"
         />
       </div>
+      <Link
+        onClick={logoutUser}
+        className="absolute top-3 right-3 w-12 h-12 rounded-full bg-black flex items-center justify-center z-50"
+      >
+        <i
+          style={{ color: "white" }}
+          className="ri-logout-box-line ri-xl mb mr-0.5"
+        ></i>
+      </Link>
       {/* <div> */}
       {/* <img
           onClick={() => {

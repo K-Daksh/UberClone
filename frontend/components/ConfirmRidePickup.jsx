@@ -11,7 +11,7 @@ const ConfirmRidePickup = (props) => {
   const navigate = useNavigate();
   const [otp, setOtp] = React.useState("");
   const handleSubmit = async (e) => {
-    console.log("Submit pressed", otp);
+    //console.log("Submit pressed", otp);
     e.preventDefault();
     const response = await axios.get(
       `${import.meta.env.VITE_BASE_URL}/rides/start-ride`,

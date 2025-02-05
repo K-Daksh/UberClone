@@ -30,24 +30,20 @@ const CaptainHome = () => {
   }, []);
 
   useEffect(() => {
-    const updateLocation = () => {
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((position) => {
-          // console.log(position.coords.latitude, position.coords.longitude);
-          socket.emit("update-location-captain", {
-            userId: captain._id,
-            location: {
-              ltd: position.coords.latitude,
-              lng: position.coords.longitude,
-            },
-          });
+    if (navigator.geolocation) {
+      const watchId = navigator.geolocation.watchPosition((position) => {
+        socket.emit("update-location-captain", {
+          userId: captain._id,
+          location: {
+            ltd: position.coords.latitude,
+            lng: position.coords.longitude,
+          },
         });
-      }
-    };
+      });
+      return () => navigator.geolocation.clearWatch(watchId);
+    }
+  }, [captain, socket]);
 
-    setInterval(updateLocation, 10000);
-    updateLocation();
-  }, [captain]);
   socket.on("new-ride", (data) => {
     setRide(data);
     setRidePopup(true);
@@ -128,7 +124,7 @@ const CaptainHome = () => {
       </div>
       <Link
         to="/captain-logout"
-        className="absolute top-3 right-3 w-12 h-12 rounded-full bg-black flex items-center justify-center z-30"
+        className="absolute top-3 right-3 w-12 h-12 rounded-full bg-black flex items-center justify-center z-50"
       >
         <i
           style={{ color: "white" }}

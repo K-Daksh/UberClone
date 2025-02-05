@@ -11,7 +11,7 @@ const UserLogout = () => {
   });
   useEffect(() => {
     localStorage.removeItem("token");
-    // console.log("User Logged Out");
+    // //console.log("User Logged Out");
     Navigate("/login");
   }, [Navigate, response]);
   return <div>UserLogout</div>;

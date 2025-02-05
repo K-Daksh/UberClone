@@ -88,7 +88,7 @@ module.exports.confirmRide = async ({ rideId, captain }) => {
     const ride = await rideModel.findOne({
         _id: rideId
     }).populate('user').populate('captain').select('+otp');
-    console.log("Ride id of new ride is ", rideId);
+    //console.log("Ride id of new ride is ", rideId);
 
     if (!ride) {
         throw new Error('Ride not found');

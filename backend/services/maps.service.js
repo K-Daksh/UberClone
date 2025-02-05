@@ -48,17 +48,18 @@ module.exports.getDistance = async (origin, destination) => {
 
 module.exports.getSuggestions = async (address) => {
     try {
-        const response = await axios.get('https://maps.googleapis.com/maps/api/place/autocomplete/json', {
+        const { data } = await axios.get('https://maps.googleapis.com/maps/api/place/autocomplete/json', {
             params: {
                 input: address,
                 key: process.env.GOOGLE_MAPS_API
             }
         });
 
-        if (response.data.status === 'OK') {
-            return response.data.predictions;
+        if (data.status === 'OK' && data.predictions) {
+            return data.predictions;
         } else {
-            throw new Error('Unable to fetch suggestions');
+            // console.warn(`Google Places API returned status: ${data.status} ${data.error_message || ''}`);
+            return [];
         }
     } catch (error) {
         console.error(error);

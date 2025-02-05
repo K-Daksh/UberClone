@@ -22,14 +22,14 @@ const CaptainLogin = () => {
     setIsLoading(true);
     try {
       const captain = { email: email, password: password };
-      console.log("Sending login request:", captain);
+      //console.log("Sending login request:", captain);
 
       const response = await axios.post(
         `${import.meta.env.VITE_BASE_URL}/captain/login`,
         captain
       );
 
-      console.log("Login response:", response.data);
+      //console.log("Login response:", response.data);
 
       if (response.status === 200) {
         const data = response.data;

@@ -13,7 +13,7 @@ router.post('/register', [
     body('vehicle.capacity').isInt({ min: 1 }).withMessage('Capacity must be at least 1'),
     body('vehicle.vehicleType').isIn(['car', 'motorcycle', 'auto']).withMessage('Please enter a valid vehicle type'),
 ], (req, res) => {
-    // console.log("Registering captain");
+    // //console.log("Registering captain");
     captainController.registerCaptain(req, res);
 });
 
@@ -22,7 +22,7 @@ router.post('/login', [
     body('email').isEmail().withMessage('Please enter a valid email'),
     body('password').isLength({ min: 6 }).withMessage('Password must be at least 6 characters long'),
 ], (req, res) => {
-    // console.log("Logging in captain");
+    // //console.log("Logging in captain");
     captainController.loginCaptain(req, res);
 });
 

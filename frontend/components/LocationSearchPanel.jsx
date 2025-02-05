@@ -3,7 +3,7 @@ import React from "react";
 const LocationSearchPanel = ({ suggestions = [], onSuggestionSelect }) => {
   // Ensure suggestions is an array
   const safeSuggestions = Array.isArray(suggestions) ? suggestions : [];
-  // console.log(safeSuggestions);
+  // //console.log(safeSuggestions);
   return (
     <>
       {safeSuggestions.map((suggestion, index) => (

@@ -46,14 +46,14 @@ const FindingDriver = (props) => {
   //   if (isRunning) {
   //     timer = setInterval(() => {
   //       setTime((prevTime) => prevTime - 1);
-  //       console.log(time);
+  //       //console.log(time);
   //     }, 1000);
   //   }
   //   return () => clearInterval(timer); // Cleanup the interval on component unmount or when isRunning changes
   // }, [isRunning, time]);
 
   // if (props.vehicleFound && !isRunning) {
-  //   console.log("timer started");
+  //   //console.log("timer started");
   //   setTime(30);
   //   setIsRunning(true);
   // }
@@ -61,7 +61,7 @@ const FindingDriver = (props) => {
   //   setIsRunning(false);
   //   setTime(null);
   //   props.setVehicleFound(false);
-  //   console.log("timer stopped");
+  //   //console.log("timer stopped");
   //   navigate("/home");
   // }
   const image = {

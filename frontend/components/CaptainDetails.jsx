@@ -5,7 +5,7 @@ import { CaptainDataContext } from "./../src/context/CaptainContext";
 
 import "remixicon/fonts/remixicon.css";
 const CaptainDetails = () => {
-  // console.log(props.captain);
+  // //console.log(props.captain);
   const { captain, setCaptain } = React.useContext(CaptainDataContext);
   return (
     <div>

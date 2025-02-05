@@ -55,7 +55,7 @@ module.exports.getPrices = async (req, res, next) => {
     }
     try {
         const { origin, destination } = req.query;
-        // console.log(origin, destination, " origin and destination");
+        // ////console.log(origin, destination, " origin and destination");
         const prices = await rideService.getFare(origin, destination);
         res.json(prices);
     } catch (error) {

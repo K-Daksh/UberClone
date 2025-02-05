@@ -21,14 +21,12 @@ const CaptainProtectedWrapper = ({ children }) => {
         },
       })
       .then((response) => {
-        // console.log("Response from CPW ", response);
         if (response.status === 200) {
           setCaptain(response.data.captain);
           setIsLoading(false);
         }
       })
       .catch((error) => {
-        console.log(error);
         localStorage.removeItem("token");
         navigate("/captain-login");
       });

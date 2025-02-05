@@ -35,7 +35,7 @@ module.exports.loginCaptain = async (req, res, next) => {
     }
 
     const captain = await captainModel.findOne({ email });
-    // console.log(captain);
+    // //console.log(captain);
     if (!captain) {
         return res.status(404).json({ message: 'Captain not found' });
     }
@@ -50,7 +50,7 @@ module.exports.loginCaptain = async (req, res, next) => {
 }
 
 module.exports.getCaptainProfile = async (req, res, next) => {
-    // console.log(req.captain);
+    // //console.log(req.captain);
     return res.status(200).json({ captain: req.captain });
 }
 
@@ -58,7 +58,7 @@ module.exports.logoutCaptain = async (req, res, next) => {
     const token = req.cookies.token || req.headers.authorization?.split(' ')[1];
     const blackToken = await blacklistTokenModel.create({ token });
     blackToken.save();
-    // console.log(token);
+    // //console.log(token);
     res.clearCookie('token');
     return res.status(200).json({ message: 'Logged out' });
 }

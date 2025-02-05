@@ -12,7 +12,7 @@ const CaptainRiding = () => {
   const finishRidePanelRef = React.useRef(null);
   const location = useLocation();
   const rideData = location.state?.ride;
-  // console.log(rideData);
+  // //console.log(rideData);
 
   useGSAP(
     function () {
@@ -40,7 +40,7 @@ const CaptainRiding = () => {
         <div className="absolute top-0 left-0 ml-7 py-7 z-30">
           <Link
           // onClick={async () => {
-          //   console.log("Trying logout");
+          //   //console.log("Trying logout");
           //   await axios.get(`${import.meta.env.VITE_API_URL}/captain-logout`);
           // }}
           // to="/captain-login"

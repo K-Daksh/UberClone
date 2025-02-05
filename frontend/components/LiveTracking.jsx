@@ -7,56 +7,80 @@ const containerStyle = {
 };
 
 const defaultCenter = {
-  lat: 0,
-  lng: 0,
+  lat: 28.6139,
+  lng: 77.209,
 };
 
 const LiveTracking = () => {
-  const [currentPosition, setCurrentPosition] = useState(defaultCenter);
+  const [currentPosition, setCurrentPosition] = useState(null);
   const [error, setError] = useState(null);
+  const [isGeolocationAvailable, setIsGeolocationAvailable] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    if (!navigator.geolocation) {
+      setError("Geolocation is not supported by your browser");
+      setIsGeolocationAvailable(false);
+      setIsLoading(false);
+      return;
+    }
+
     const handlePositionUpdate = (position) => {
       const { latitude, longitude } = position.coords;
       setCurrentPosition({
         lat: latitude,
         lng: longitude,
       });
+      setIsLoading(false);
     };
 
     const handleError = (error) => {
       setError(error.message);
+      setIsLoading(false);
       console.error("Geolocation error:", error);
     };
 
-    // Get initial position
-    navigator.geolocation.getCurrentPosition(handlePositionUpdate, handleError);
+    // Get initial position with high accuracy
+    navigator.geolocation.getCurrentPosition(
+      handlePositionUpdate,
+      handleError,
+      {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0,
+      }
+    );
 
     // Watch for position changes
     const watchId = navigator.geolocation.watchPosition(
       handlePositionUpdate,
-      handleError
+      handleError,
+      {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0,
+      }
     );
 
-    // Set up periodic updates
-    const intervalId = setInterval(() => {
-      navigator.geolocation.getCurrentPosition(
-        handlePositionUpdate,
-        handleError
-      );
-    }, 10000); // Update every 10 seconds
-
-    // Cleanup
     return () => {
       navigator.geolocation.clearWatch(watchId);
-      clearInterval(intervalId);
     };
   }, []);
 
-  if (error) {
-    return <div>Error: {error}</div>;
+  if (!isGeolocationAvailable) {
+    return <div>Error: Geolocation is not supported by your browser.</div>;
   }
-  //   console.log(import.meta.env.VITE_GOOGLE_MAPS_API);
+
+  if (error) {
+    return (
+      <div>Error: {error}. Please ensure location permissions are granted.</div>
+    );
+  }
+
+  if (isLoading || !currentPosition) {
+    return <div>Loading map...</div>;
+  }
+
   return (
     <LoadScript googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API}>
       <GoogleMap
