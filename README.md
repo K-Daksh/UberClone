@@ -1,13 +1,6 @@
 <h1>UBER</h1>
 
 
-<<<<<<< HEAD
-<p align="center">
-  <img src="./assets/ClientGif.gif" alt="Client Demo" width="250" style="margin-right: 20px;"/>
-  <img src="./assets/CaptainGif.gif" alt="Captain Demo" width="250"/>
-</p>
-=======
-This is a full-stack ride-hailing application inspired by Uber. It demonstrates real-time location tracking, live ride updates, driver assignments, and more.
 
 <p align="center" >
   <img src="./assets/ClientGif.gif" alt="Client Demo" width="250" />
@@ -15,7 +8,6 @@ This is a full-stack ride-hailing application inspired by Uber. It demonstrates 
 </p>
 
 ### Try for yourself https://uber-clone-app-bay.vercel.app/
->>>>>>> 5db919e83679acb7790ebf08e7f6457174c1f0ae
 
 ## Features
 
@@ -34,7 +26,7 @@ This is a full-stack ride-hailing application inspired by Uber. It demonstrates 
 
 ## Project Overview
 
-1. A user can sign in, request a ride, and track the driver’s location in real time.
+1. A user can sign in, request a ride, and track the driver’s location in real-time.
 2. A captain/driver can log in, view ride requests, and update location for live tracking.
 3. Uses a backend server (Node.js/Express) for APIs and real-time sockets.
 4. Utilizes a modern frontend (React) with Google Maps for a mobile-friendly UI.
