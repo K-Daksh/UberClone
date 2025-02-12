@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { CaptainDataContext } from "../context/CaptainContext";
+import { ToastContainer, toast } from "react-toastify";
+
 const CaptainLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,6 +18,34 @@ const CaptainLogin = () => {
     updateCaptain,
   } = React.useContext(CaptainDataContext);
   const navigate = useNavigate();
+
+  const notify = (message, success = false) => {
+    if (success) {
+      toast.success(message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        className: "w-5/6 mt-6 text-center",
+      });
+    } else {
+      toast.error(message, {
+        position: "top-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: false,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        className: "w-5/6 mt-6 text-center",
+      });
+    }
+  };
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -40,6 +70,7 @@ const CaptainLogin = () => {
       }
     } catch (error) {
       console.error("Login error:", error);
+      notify("Login failed, invalid email or password", false);
       setError("Login failed. Please try again.");
     } finally {
       setIsLoading(false);
@@ -110,6 +141,7 @@ const CaptainLogin = () => {
           Sign in as User
         </Link>
       </div>
+      <ToastContainer />
     </div>
   );
 };

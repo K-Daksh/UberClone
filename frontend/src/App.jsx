@@ -13,6 +13,7 @@ import CaptainProtectedWrapper from "./pages/CaptainProtectWrapper";
 import CaptainLogout from "./pages/CaptainLogout";
 import RideStarted from "./pages/RideStarted";
 import CaptainRiding from "./pages/CaptainRiding";
+import { ToastContainer } from "react-toastify";
 
 const App = () => {
   const [isMobileView, setIsMobileView] = useState(false);
@@ -51,7 +52,8 @@ const App = () => {
         alt="logo"
       />
       <h1>
-        Please use Ctrl + Shift + M to switch to mobile viewing mode.
+        Please switch to mobile viewing mode using developer tools or open on a
+        mobile device.
         <br />
         This website is designed for mobile devices only.
       </h1>
@@ -109,6 +111,7 @@ const App = () => {
           }
         ></Route>
       </Routes>
+      <ToastContainer />
     </div>
   ) : (
     <DesktopMessage />
